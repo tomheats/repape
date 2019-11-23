@@ -1,0 +1,85 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>repape</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+
+
+    <!-- Custom styles for this template -->
+</head>
+<body class="text-center">
+
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <button type="button" class="btn btn-outline-light left">News</button>
+            <button type="button" class="btn btn-outline-light right">Social</button>
+            <button type="button" class="btn btn-outline-light bot">Write</button>
+
+
+            <div class="cover-container">
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand">Cover</h3>
+
+                        <ul class="nav masthead-nav">
+                            {% if user.is_authenticated %}
+                            <li>
+                                <a href="javascript:{document.getElementById('logout').submit()}">Log Out</a>
+                            </li>
+                            <form id="logout" method="POST" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <input type="hidden"/>
+                            </form>
+                            {% else %}
+                            <li>
+                                <a href="{% url 'signup' %}">Sign Up</a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'login' %}">Login</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="inner cover">
+                    <h1 class="cover-heading">repape.</h1>
+
+                        </div>
+
+
+                        <!--<div class="mastfoot">
+                            <div class="inner">
+                                        <p>© 2014 Your Name ~ <a href=
+                                            "http://getbootstrap.com/">Bootstrap</a></p>
+                                        </div>
+                                    </div>-->
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <footer class="mt-auto text-white-50">
+                            <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+                        </footer>
+                    </div>
+
+
+                </body>
+                </html>
