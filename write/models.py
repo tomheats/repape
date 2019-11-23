@@ -8,7 +8,7 @@ class Write(models.Model):
     pub_date = models.DateTimeField()
     body = models.TextField()
     image = models.ImageField(upload_to="images/")
-    likes_total = models.IntegerField(default=0)
+    upvotes_total = models.IntegerField(default=1)
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
