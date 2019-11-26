@@ -24,140 +24,150 @@ hr{
     object-fit: cover;
 }
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-body{font-family: 'Poppins', sans-serif;
-     background: #fafafa}
-p{font-family: 'Poppins', sans-serif;
-  font-size: 1.1em;
-	font-weight: 300;
-	line-height: 1.7em;
-	color: #999;
-}
-a,
-a:hover,
-a:focus{
-	color: inherit;
-	text-decoration: none;
-	transition: all 0.3s;
-}
-.navbar{
-	padding: 15px 10px;
-	background: #fff;
-	border: none;
-	border-radius: 0;
-	margin-bottom: 40px;
-	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+
+h2 {
+  position: absolute;
+  left: 20px;
+  top: 0px;
+  z-index: -1;
 }
 
-.navbar-btn{
-	box-shadow: none;
-	outline: none!important;
-	border: none;
+.center {
+  position: absolute;
+  margin: auto;
+  top: 10px;
+  right: 10px;
 }
 
-.line{
-	width: 100%;
-	height: 1px;
-	border-bottom: 1px dashed #ddd;
+.menu {
+  width: 40px;
+  height: 40px;
 }
 
-.wrapper {
-    display: flex;
+.title {
+  width: 300px;
+  height: 10px;
+  top: 0px;
+  left: 0;
+  z-index: 2;
+}
+
+.item {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+}
+
+i {
+  font-size: 24px;
+  color: #222222;
+}
+
+
+/*------------------------------------------------*/
+
+body, html {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    align-items: stretch;
-}
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    background: #7386D5;
-    color: #fff;
-    transition: all 0.3s;
-}
-#sidebar.active{
-	margin-left: -250px;
+    height: 100%;
 }
 
-#sidebar .sidebar-header{
-	padding: 20px;
-	background: #6d7fcc;
-}
-#sidebar ul.components{
-	padding: 20px 0px;
-	border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p{
-	padding: 10px;
-	font-size: 1.1em;
-	display: block;
+#sidemenu {
+    height: 100%;
+    position: fixed;
+    background-color: #E8E8E8;
+    width: 250px;
+    transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateX(-100%);
+    left: 60px;
 }
 
-#sidebar ul li a{
-	padding: 10px;
-	font-size: 1.1em;
-	display: block;
-}
-#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+#sidemenu.expanded {
+    transform: translateX(0%);
+    left: 0px;
 }
 
-#sidebar ul li.active>a,
-a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}
-a[data-toggle="collapse"] {
+.menu-inner {
+    width: 100%;
+    height: 100%;
     position: relative;
 }
-.dropdown-toggle::after {
-    display: block;
+
+#blob {
+    top: 0;
+    z-index: -1;
+    right: 60px;
+    transform: translateX(100%);
+    height: 100%;
     position: absolute;
-    top: 50%;
+}
+
+#blob-path {
+    height: 100%;
+    fill:  #26466D;
+}
+
+.hamburger {
     right: 20px;
-    transform: translateY(-50%);
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
 }
 
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
-}
-
-ul.CTAs {
-    padding: 20px;
-}
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-a.download{
-	background: #fff;
-	color: #7386D5;
-}
-a.article,
-a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-}
-
-#content {
+.hamburger .line {
     width: 100%;
-    padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
 }
 
-@media(maz-width:768px){
-	#sidebar{margin-left: -250px;}
-	#sidebar.active{
-		margin-left: 0px;
-	}
-	#sidebarCollapse span{
-		display: none;
-	}
+.hamburger .line:nth-child(2) {
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger .line:nth-child(3) {
+    bottom: 0;
+}
+
+h1 {
+    position: fixed;
+    right: 0;
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    width: 80%;
+    margin-left: 10%;
+    position: absolute;
+    top: 10px;
+}
+
+ul li {
+    color: #black;
+    font-family: sans-serif;
+    padding: 20px 0;
+}
+
+h2 {
+    position: absolute;
+   left: 50%;
+color: #black;
+    margin: 0;
+font-size: 16px;
+font-family: sans-serif;
+font-weight: 100;
 }

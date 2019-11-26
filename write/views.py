@@ -6,7 +6,7 @@ from django.utils import timezone
 
 def home(request):
     writes = Write.objects
-    return render(request, 'write/home.html', {'writes': writes})
+    return render(request, 'write/home.html', {'writes': writes, 'name': request.user.username})
 
 
 @login_required
