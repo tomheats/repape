@@ -3,10 +3,21 @@ from django.contrib.auth.models import User
 
 
 class Write(models.Model):
-
+    choice = (
+        ('tech', '#tech'),
+        ('politics', '#politics'),
+        ('history', '#history'),
+        ('health', '#health'),
+        ('education', '#education'),
+        ('sports', '#sports'),
+        ('family', '#family'),
+        ('food', '#food'),
+        ('news', '#news'),
+    )
     title = models.CharField(max_length=255)
     pub_date = models.DateTimeField()
     body = models.TextField()
+    category = models.CharField(max_length=50, choices=choice, default='tech')
     image = models.ImageField(upload_to="images/")
     upvotes_total = models.IntegerField(default=1)
     writer = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -80,6 +80,7 @@ body, html {
     padding: 0;
     width: 100%;
     height: 100%;
+    background-color: #dae0e6;
 }
 
 #sidemenu {
@@ -140,14 +141,14 @@ body, html {
 .hamburger .line:nth-child(3) {
     bottom: 0;
 }
-
+/*
 h1 {
     position: fixed;
     right: 0;
     margin: 0;
-}
+}*/
 
-ul {
+.base_ul {
     padding: 0;
     list-style: none;
     width: 80%;
@@ -156,12 +157,12 @@ ul {
     top: 10px;
 }
 
-ul li {
+.base_li {
     color: #black;
     font-family: sans-serif;
     padding: 20px 0;
 }
-
+/*
 h2 {
     position: absolute;
    left: 50%;
@@ -170,4 +171,68 @@ color: #black;
 font-size: 16px;
 font-family: sans-serif;
 font-weight: 100;
+}
+*/
+.upvote{
+    font-size: 20px;
+}
+
+.btn-up{
+    height: 25px;
+    width: 40px;
+}
+
+.cat{
+    font-size: 15px;
+    color: #26466D;
+}
+
+.gridy{
+    font-size: 20px;
+}
+
+.row{
+    line-height: 10px;
+}
+
+p{
+    font-size: 14px;
+    font-family: verdana, arial, helvetica, sans-serif;
+    color: #1A1A1B;
+}
+
+h3{
+    font-size: 18px;
+    font-family: verdana, arial, helvetica, sans-serif;
+    color: #222222;
+}
+
+.infor{
+    font-size: 12px;
+    font-family: verdana, arial, helvetica, sans-serif;
+    color: rgb(120, 124, 126);
+}
+
+.container{
+    background-color: white;
+    width: 60%;
+    padding-top: 20px;
+}
+
+.right_sidebar{
+    position: absolute;
+    right: 50px;
+    background-color: white;
+    padding-top: 40px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 40px;
+}
+
+.nav_it{
+    padding-right: 120px;
+}
+
+.create_it{
+    padding-right: 60px;
 }

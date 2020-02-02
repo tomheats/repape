@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--<h1>Recent</h1>-->
+
+<h3><b>Profile Settings</b></h3>
+<img src="{{ user.userprofile.image.url }}" width="100"><br>
+<p><b>Username: </b>{{ user }}</p>
+<p><b>Email: </b>{{ user.email }}</p>
+<p><b>Description: </b>{{ user.userprofile.description }}</p>
+<p><b>Phone: </b>{{ user.userprofile.phone }}</p>
+<p><b>City: </b>{{ user.userprofile.city }}</p>
+<p><b>Website: </b>{{ user.userprofile.website }}</p>
+<form action="{% url 'profile_edit' %}">
+<button class="btn btn-outlined-dark">Edit Profile</button>
+</form>
+<br>
+<form action="{% url 'edit_additional_info' %}">
+<button class="btn btn-outlined-dark">Edit Additional Info</button>
+</form>
+
+{% endblock %}

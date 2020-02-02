@@ -2,21 +2,31 @@
 
 {% block content %}
 <!--<h1>Recent</h1>-->
+{% if search_term == "" %}
 {% for write in writes.all %}
 <div class="row">
+
   <div class="col-2" onclick="window.location='{% url 'detail' write.id %}';" style="cursor: pointer;">
     <img src="{{ write.image.url }}" class="img-fluid img_row"/>
+    <button class="btn btn-outlined-dark"> <i class="cat">#{{ write.category }}</i></p></button>
+
   </div>
   <div class="col-6" onclick="window.location='{% url 'detail' write.id %}';" style="cursor: pointer;">
-    <h3>{{ write.title }}</h3>
+     <p class="infor">Posted by <b>{{ write.writer.username }} </b> on {{write.pub_date}}</p>
+    <h3><b>{{ write.title }}</b></h3>
     <p>{{ write.summary }}</p>
-    <p>by: {{ write.writer.username }}</p>
+
+
   </div>
   <div class="col-3">
   </div>
   <div class="col-1">
-    <a href="javascript:{document.getElementById('upvote{{ write.id }}').submit()}"><button class="btn btn-outline-dark btn-sm btn-block"><span class="oi oi-caret-top text-center"></span> {{ write.upvotes_total }}</button></a>
-    <button class="btn btn-outline-dark btn-sm btn-block"><span class="oi oi-eye"></span></button>
+    <a href="javascript:{document.getElementById('upvote{{ write.id }}').submit()}"><span class="oi oi-arrow-top gridy"></span>{{ write.upvotes_total }}</a>
+    <br><br>
+    <a href="javascript:{document.getElementById('upvote{{ write.id }}').submit()}"><span class="oi oi-arrow-bottom gridy"></span></a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<span class="oi oi-bookmark gridy"></span>
   </div>
 </div>
 <hr>
@@ -26,4 +36,39 @@
 </form>
 {% endfor %}
 
+
+{% else %}
+{% for write in all_blogs %}
+<div class="row">
+
+  <div class="col-2" onclick="window.location='{% url 'detail' write.id %}';" style="cursor: pointer;">
+    <img src="{{ write.image.url }}" class="img-fluid img_row"/>
+    <button class="btn btn-outlined-dark"> <i class="cat">#{{ write.category }}</i></p></button>
+
+  </div>
+  <div class="col-6" onclick="window.location='{% url 'detail' write.id %}';" style="cursor: pointer;">
+     <p class="infor">Posted by <b>{{ write.writer.username }} </b> on {{write.pub_date}}</p>
+    <h3><b>{{ write.title }}</b></h3>
+    <p>{{ write.summary }}</p>
+
+
+  </div>
+  <div class="col-3">
+  </div>
+  <div class="col-1">
+    <a href="javascript:{document.getElementById('upvote{{ write.id }}').submit()}"><span class="oi oi-arrow-top gridy"></span>{{ write.upvotes_total }}</a>
+    <br><br>
+    <a href="javascript:{document.getElementById('upvote{{ write.id }}').submit()}"><span class="oi oi-arrow-bottom gridy"></span></a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<span class="oi oi-bookmark gridy"></span>
+  </div>
+</div>
+<hr>
+<form id="upvote{{ write.id }}" method="POST" action="{% url 'upvote' write.id %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+{% endfor %}
+{% endif %}
 {% endblock %}
